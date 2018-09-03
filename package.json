@@ -1,0 +1,55 @@
+{
+  "name": "client-ssr-boilerplate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index",
+  "dependencies": {
+    "express": "^4.16.3",
+    "react": "^16.4.2"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.1.3",
+    "better-npm-run": "^0.1.1",
+    "awesome-typescript-loader": "^5.2.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.2",
+    "babel-preset-es2015": "^6.24.1",
+    "css-loader": "^1.0.0",
+    "npm-run-all": "^4.1.3",
+    "postcss-extend": "^1.0.5",
+    "postcss-import": "^12.0.0",
+    "postcss-loader": "^3.0.0",
+    "postcss-mixins": "^6.2.0",
+    "postcss-nested": "^3.0.0",
+    "postcss-simple-vars": "^4.1.0",
+    "precss": "^3.1.2",
+    "style-loader": "^0.23.0",
+    "ts-loader": "^4.5.0",
+    "typescript": "^3.0.3",
+    "webpack": "^4.17.1",
+    "webpack-cli": "^3.1.0",
+    "webpack-merge": "^4.1.4",
+    "webpack-node-externals": "^1.7.2"
+  },
+  "scripts": {
+    "dev": "better-npm-run dev:start",
+    "dev:start": "nodemon dist/server.js",
+    "dev:build-client": "webpack --mode=development --config ./webpack/webpack.dev.client.js --watch",
+    "dev:build-server": "webpack --mode=development --config ./webpack/webpack.dev.server.js --watch"
+  },
+  "betterScripts": {
+    "dev:start": {
+      "command": "npm-run-all --parallel dev:*",
+      "env": {
+        "NODE_ENV": "development"
+      }
+    }
+  },
+  "repository": "git+https://github.com/Dmitriu-Antares/client-ssr-boilerplate.git",
+  "author": "Antares <antares.fire.group@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dmitriu-Antares/client-ssr-boilerplate/issues"
+  },
+  "homepage": "https://github.com/Dmitriu-Antares/client-ssr-boilerplate#readme"
+}
