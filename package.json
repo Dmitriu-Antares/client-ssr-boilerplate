@@ -33,9 +33,9 @@
   },
   "scripts": {
     "dev": "better-npm-run dev:start",
-    "dev:start": "nodemon dist/server.js",
-    "dev:build-client": "webpack --mode=development --config ./webpack/webpack.dev.client.js --watch",
-    "dev:build-server": "webpack --mode=development --config ./webpack/webpack.dev.server.js --watch"
+    "dev:start": "nodemon ./dist/server.js",
+    "dev:build-client": "webpack --config ./webpack/webpack.dev.client.js --watch",
+    "dev:build-server": "webpack --config ./webpack/webpack.dev.server.js --watch"
   },
   "betterScripts": {
     "dev:start": {

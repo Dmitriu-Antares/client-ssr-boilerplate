@@ -4,10 +4,12 @@ const baseConf = require("./webpack.base.js");
 var nodeExternals = require('webpack-node-externals');
 
 const config  = {
+  devtool: 'inline-source-map',
   entry: './server/server.ts',
+  target: 'node',
   output: {
     filename: 'server.js',
-    path: path.join(__dirname, '../dist')
+    path: path.resolve(__dirname, '../dist')
   },
   externals: [nodeExternals()]
 };
