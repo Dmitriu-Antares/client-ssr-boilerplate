@@ -4,3 +4,5 @@ const a = () => {
     console.log('task', c)
     console.log('newssssdfsdfs')
 }
+
+a()
