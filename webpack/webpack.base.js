@@ -5,9 +5,13 @@ module.exports = {
     // Add `.ts` and `.tsx` as a resolvable extension.
     extensions: [".ts", ".tsx", ".js", ".jsx"]
   },
+  devtool: 'source-map',
+    resolve: {
+        extensions: ['.js', '.json', '.ts', '.tsx'],
+    },
   module: {
     rules: [
-      { test: /\.tsx?$/,
+      { test: /\.(ts|tsx)$/,
         loader: 'awesome-typescript-loader',
         exclude: [/node_modules/]
       },

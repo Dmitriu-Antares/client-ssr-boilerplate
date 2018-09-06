@@ -5,7 +5,7 @@ var nodeExternals = require('webpack-node-externals');
 
 const config  = {
   devtool: 'inline-source-map',
-  entry: './server/server.ts',
+  entry: './server/server.tsx',
   target: 'node',
   output: {
     filename: 'server.js',
