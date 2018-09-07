@@ -13,25 +13,11 @@ import App from './containers/App/App'
 import sagas from './sagas';
 import gistReducers from './reducers'
 
+import configureStore from '../server/helpers/store'
 
-const reducer = combineReducers({
-    gistReducers,
-});
+const store = configureStore(window.initialState)
 
-const history = createHistory();
-const sagaMiddleware = createSagaMiddleware();
-
-
-
-const store = createStore(
-    reducer,
-    compose(
-        applyMiddleware(routerMiddleware(history), sagaMiddleware)
-    ),
-);
-const allSagas:any = sagas
-// then run the saga
-sagaMiddleware.run(allSagas)
+store.runSaga(sagas, store.dispatch)
 
 
 ReactDOM.hydrate(

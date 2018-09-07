@@ -11,7 +11,8 @@ const reduxMiddlewares = [
     sagaMiddleware,
 ];
 
-export default (initialState) => {
+export default (initialState ={}) => {
+
     const store:any = createStore(
         combineReducers({
             gistReducers

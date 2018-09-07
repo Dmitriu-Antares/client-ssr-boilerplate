@@ -14,16 +14,17 @@ class App extends React.Component<any,{}> {
 
     render(){
         const { gistReducers } = this.props
-        console.log(this.props)
+        console.log(gistReducers)
         return (
             <div>
                 <h1>Hello my</h1>
                 {routes.map((route,key) => (
                     <Route key={key} {...route}/>
                 ))}
+
                 {
-                    gistReducers.map(gist => (
-                        <div>{gist.title}</div>
+                    gistReducers && gistReducers.map((gist, key) => (
+                        <div key={key}>{gist.title}</div>
                         )
                     )
                 }

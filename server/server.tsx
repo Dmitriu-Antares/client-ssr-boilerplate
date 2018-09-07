@@ -30,7 +30,7 @@ const renderApp = async (store, context:{} = {}, req) => {
 
 app.use(express.static('dist'));
 app.get('*',(req,res) => {
-    const store:any = configureStore({})
+    const store:any = configureStore()
 
     const context = {}
 
@@ -42,7 +42,9 @@ app.get('*',(req,res) => {
         //res.send(html({body:resp}, store.getState()))
 
         rootTask.done.then(ress => {
-            res.send(html({body:resp}, store.getState()))
+            const newBody = renderApp(store, {}, req).then(() => {
+                res.send(html({body:resp}, store.getState()))
+            })
         })
     })
 
