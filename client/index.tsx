@@ -21,6 +21,8 @@ const reducer = combineReducers({
 const history = createHistory();
 const sagaMiddleware = createSagaMiddleware();
 
+
+
 const store = createStore(
     reducer,
     compose(
@@ -29,7 +31,8 @@ const store = createStore(
 );
 const allSagas:any = sagas
 // then run the saga
-sagaMiddleware.run(allSagas);
+sagaMiddleware.run(allSagas)
+
 
 ReactDOM.hydrate(
     <Provider store={store}>

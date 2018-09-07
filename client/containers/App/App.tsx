@@ -14,6 +14,7 @@ class App extends React.Component<any,{}> {
 
     render(){
         const { gistReducers } = this.props
+        console.log(this.props)
         return (
             <div>
                 <h1>Hello my</h1>

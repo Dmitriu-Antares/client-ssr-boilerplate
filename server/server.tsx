@@ -14,29 +14,39 @@ import sagas from '../client/sagas'
 const app = express();
 const port = 3030
 
-app.use(express.static('dist'));
-app.use('/',(req,res) => {
-    const store:any = configureStore({});
-
-    const context = {}
-    const body = ReactDOMServer.renderToString(
+const renderApp = async (store, context:{} = {}, req) => {
+    const app = (
         <Provider store={store}>
             <StaticRouter
                 location={req.url}
-                context={{}}>
+                context={context}>
                 <App/>
             </StaticRouter>
         </Provider>
     )
-    //here is some problem with async. We return res.send, not store.runSaga
-    res.send(html({body}));
-    store.runSaga(sagas).done.then((resp) => {
-        console.log('res',resp)
-        res.send(html({body}));
-    }).catch(err =>{
-        console.log(err)
+    const body = await ReactDOMServer.renderToString(app)
+    return body
+}
+
+app.use(express.static('dist'));
+app.get('*',(req,res) => {
+    const store:any = configureStore({})
+
+    const context = {}
+
+    const rootTask = store.runSaga(sagas)
+
+
+    const bodys:any = renderApp(store, {}, req)
+    bodys.then(resp => {
+        //res.send(html({body:resp}, store.getState()))
+
+        rootTask.done.then(ress => {
+            res.send(html({body:resp}, store.getState()))
+        })
     })
 
+    store.close()
 
 })
 
