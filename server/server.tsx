@@ -42,8 +42,8 @@ app.get('*',(req,res) => {
         //res.send(html({body:resp}, store.getState()))
 
         rootTask.done.then(ress => {
-            const newBody = renderApp(store, {}, req).then(() => {
-                res.send(html({body:resp}, store.getState()))
+            const newBody = renderApp(store, {}, req).then(newRes => {
+                res.send(html({body:newRes}, store.getState()))
             })
         })
     })

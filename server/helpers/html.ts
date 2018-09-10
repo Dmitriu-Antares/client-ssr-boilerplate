@@ -1,8 +1,9 @@
 const html = ({body}, initialState) => `
   <!DOCTYPE html>
   <html>
-    <head>
-    </head>
+      <head>
+          <link href="main.css" rel="stylesheet">
+      </head>      
     <body style="margin:0">
         <script>
                 window.__INITIAL_STATE__ = ${JSON.stringify(initialState)}

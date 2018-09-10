@@ -24,7 +24,6 @@ export const fetchUrl = () => fetch('https://api.github.com/gists', {
 export function* fetchGists() {
     try {
         const gists = yield call(fetchUrl);
-            //[ {id:1, description: 'mai'}]
 
         yield put({
             type: FETCH_GISTS__SUCCEEDED,
