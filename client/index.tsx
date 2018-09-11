@@ -15,6 +15,10 @@ import gistReducers from './reducers'
 
 import configureStore from '../server/helpers/store'
 
+declare global {
+    interface Window { initialState: any; }
+}
+
 const store = configureStore(window.initialState)
 
 store.runSaga(sagas, store.dispatch)

@@ -36,7 +36,6 @@ app.get('*',(req,res) => {
 
     const rootTask = store.runSaga(sagas)
 
-
     const bodys:any = renderApp(store, {}, req)
     bodys.then(resp => {
         //res.send(html({body:resp}, store.getState()))

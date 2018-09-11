@@ -2,6 +2,7 @@ const path = require('path');
 const devMode = process.env.NODE_ENV !== 'production'
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+var LiveReloadPlugin = require('webpack-livereload-plugin');
 
 module.exports = {
   resolve: {
@@ -50,7 +51,8 @@ module.exports = {
 	  plugins: [
 		  new MiniCssExtractPlugin({
 			  filename: devMode ? '[name].css' : '[name].[hash].css'
-		  })
+		  }),
+          new LiveReloadPlugin()
 	  ]
 }
 /*
