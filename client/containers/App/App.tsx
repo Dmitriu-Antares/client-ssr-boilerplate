@@ -16,7 +16,7 @@ class App extends React.Component<any,{}> {
         const { gistReducers } = this.props
         return (
             <div>
-                <h1>Hello mssasdfsy</h1>
+                <h1>Hello msss</h1>
                 {routes.map((route,key) => (
                     <Route key={key} {...route}/>
                 ))}

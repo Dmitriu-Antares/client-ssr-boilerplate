@@ -1,3 +1,9 @@
+@media screen and (min-width: 768px) {
+    .foo {
+        width: 574px;
+    }
+}
+
 .index {
     .mau {
       padding: 10px
@@ -5,5 +11,17 @@
 }
 
 body {
-    background: rgba(0,0,255,.1)
+    background: rgba(0,0,255,.3)
+}
+
+
+
+.bar {
+    width: 160px;
+}
+
+@media screen and (min-width: 768px) {
+    .bar {
+        width: 324px;
+    }
 }

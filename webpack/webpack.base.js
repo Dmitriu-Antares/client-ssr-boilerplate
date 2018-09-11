@@ -6,7 +6,6 @@ var LiveReloadPlugin = require('webpack-livereload-plugin');
 
 module.exports = {
   resolve: {
-    // Add `.ts` and `.tsx` as a resolvable extension.
     extensions: [".ts", ".tsx", ".js", ".jsx"]
   },
   devtool: 'source-map',
