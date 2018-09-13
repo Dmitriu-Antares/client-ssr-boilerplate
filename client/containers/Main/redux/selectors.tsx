@@ -1,0 +1,1 @@
+export const takeGists = state => state.main.gists

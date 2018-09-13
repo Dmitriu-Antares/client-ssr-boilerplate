@@ -1,19 +1,31 @@
 # client-ssr-boilerplate
 
+In Process:
+Refoactoring of React/Redux structure
+- organize redux with plugins
+- where I need to add my interfaces
+- where to add styles(.css)
+
+
 REACT/REDUX
-- restructure SSR
 - enable TSlint
+- create better architecture for elements (not I think that by idea is the best way). But how to organize access from outside place
 - organize redux
+
 
 SERVER
 - add headers, middlewares
 
 WEBPACK
 - webpack global variables
-
+- add decorators for react connect, etc
+- delete client.js from builded version
 
 POSTCSS
-- organize css architecture
+- organize css architecture:
+    - choose your methodology
+    - organize variables
+    - organize media and libriares
 
 SSR
 - add react-helmet
@@ -23,3 +35,4 @@ DONE
 - hotreload for all - done
 - recreate PostCSS plugins - done
 - add production to webpack - done
+- restructure SSR - done

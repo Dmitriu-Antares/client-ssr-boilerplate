@@ -4,7 +4,7 @@ import * as express from "express"
 import {Provider} from "react-redux"
 import {BrowserRouter, StaticRouter} from "react-router-dom"
 
-import sagas from '../client/sagas'
+import sagas from '../client/rootSaga'
 import { configureStore, renderApp, html } from './helpers'
 
 

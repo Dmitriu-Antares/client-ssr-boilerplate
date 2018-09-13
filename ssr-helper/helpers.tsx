@@ -1,9 +1,10 @@
 import createSagaMiddleware, {END} from "redux-saga"
 import {routerMiddleware} from "react-router-redux"
 import createMemoryHistory from "history/createMemoryHistory"
-import gistReducers from "../client/reducers"
+import rootReducer from "../client/rootReducer"
 import {Provider} from "react-redux"
-import { createStore, applyMiddleware, combineReducers, compose } from 'redux';import {StaticRouter} from "react-router"
+import { createStore, applyMiddleware, compose } from 'redux';
+import {StaticRouter} from "react-router"
 import App from "../client/containers/App/App"
 import * as ReactDOMServer from "react-dom/server"
 import * as React from "react"
@@ -22,9 +23,7 @@ const reduxMiddlewares = [
 export const configureStore = (initialState = {}) => {
 
     const store:any = createStore(
-        combineReducers({
-            gistReducers
-        }),
+        rootReducer,
         initialState,
         compose(applyMiddleware(...reduxMiddlewares)),
     );

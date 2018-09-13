@@ -1,5 +1,5 @@
-import Media from '../containers/Media/Media'
-import Main from '../containers/Main/Main'
+import { Main, Media } from '../containers'
+
 
 export default [
     { path: '/q',
