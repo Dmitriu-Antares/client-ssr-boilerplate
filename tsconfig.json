@@ -6,7 +6,8 @@
     "moduleResolution": "node",
     "noImplicitAny": false,
     "sourceMap": true,
-    "target": "es5"
+    "target": "es5",
+    "experimentalDecorators": true
   },
   "exclude": [
     "node_modules"

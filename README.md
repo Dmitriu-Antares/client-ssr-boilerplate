@@ -1,8 +1,8 @@
 # client-ssr-boilerplate
 
-In Process:
+IN PROCESS:
 Refoactoring of React/Redux structure
-- organize redux with plugins
+- organize redux with plugins - done
 - where I need to add my interfaces
 - where to add styles(.css)
 
