@@ -1,35 +1,13 @@
-import './style.css'
-import * as React from 'react'
-import * as ReactDOM from 'react-dom'
-import { BrowserRouter } from 'react-router-dom'
-
-import { Provider } from 'react-redux';
-import { combineReducers, createStore, compose, applyMiddleware } from 'redux';
-import { ConnectedRouter, routerReducer, routerMiddleware } from 'react-router-redux';
-import createHistory from 'history/createBrowserHistory';
-import createSagaMiddleware from 'redux-saga';
-
+import { renderClient } from '../ssr-helper'
 import App from './containers/App/App'
-import sagas from './sagas';
-import gistReducers from './reducers'
 
-import configureStore from '../server/helpers/store'
+import './style.css'
 
-declare global {
-    interface Window { initialState: any; }
-}
-
-const store = configureStore(window.initialState)
-
-store.runSaga(sagas, store.dispatch)
+renderClient(App)
 
 
-ReactDOM.hydrate(
-    <Provider store={store}>
-        <BrowserRouter>
-            <App />
-        </BrowserRouter>
-    </Provider>,
-    document.getElementById('root'));
+
+
+
 
 

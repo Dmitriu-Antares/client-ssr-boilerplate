@@ -67,7 +67,11 @@
     "dev": "better-npm-run dev:start",
     "dev:start": "nodemon ./dist/server.js",
     "dev:build-client": "webpack --mode=development --config ./webpack/webpack.dev.client.js --watch",
-    "dev:build-server": "webpack --mode=development --config ./webpack/webpack.dev.server.js --watch"
+    "dev:build-server": "webpack --mode=development --config ./webpack/webpack.dev.server.js --watch",
+    "prod": "better-npm-run prod:start",
+    "prod:build-client": "webpack --mode=production --config ./webpack/webpack.dev.client.js",
+    "prod:build-server": "webpack --mode=production --config ./webpack/webpack.prod.server.js",
+    "start": "node ./dist/bundle.js"
   },
   "betterScripts": {
     "dev:start": {
@@ -75,10 +79,13 @@
       "env": {
         "NODE_ENV": "development"
       }
+    },
+    "prod:start": {
+      "command": "run-s prod:*"
     }
   },
   "repository": "git+https://github.com/Dmitriu-Antares/client-ssr-boilerplate.git",
-  "author": "Antares <antares.fire.group@gmail.com>",
+  "author": "Dmitriu Syrchin <antares.fire.group@gmail.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Dmitriu-Antares/client-ssr-boilerplate/issues"

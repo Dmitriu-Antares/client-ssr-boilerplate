@@ -5,53 +5,56 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 var LiveReloadPlugin = require('webpack-livereload-plugin');
 
 module.exports = {
-  resolve: {
-    extensions: [".ts", ".tsx", ".js", ".jsx"]
-  },
-  devtool: 'source-map',
+    devtool: 'source-map',
     resolve: {
-        extensions: ['.js', '.json', '.ts', '.tsx'],
+        extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
     },
-  module: {
-    rules: [
-      { test: /\.(ts|tsx)$/,
-        loader: 'awesome-typescript-loader',
-        exclude: [/node_modules/]
-      },
-      {
-        test: /\.(js|jsx)$/,
-        loader: 'babel-loader',
-        query: {
-          presets: ['es2015']
-        },
-        exclude: [/node_modules/]
-      },
-      {
-        test: /\.css$/,
-        exclude: /node_modules/,
-        use: [
-          { loader:  MiniCssExtractPlugin.loader },
-          {
-            loader: 'css-loader',
-            options: { importLoaders: 1 }
-          },
-          {
-            loader: 'postcss-loader',
-            options: {
-              config: {
-                path: './webpack/'
-              }
-            }
-          },
+    node: {
+        fs: "empty",
+        net: "empty"
+    },
+    externals: ['express'],
+    module: {
+        rules: [
+            {
+                test: /\.(ts|tsx)$/,
+                loader: 'awesome-typescript-loader',
+                exclude: [/node_modules/]
+            },
+            {
+                test: /\.(js|jsx)$/,
+                loader: 'babel-loader',
+                query: {
+                    presets: ['es2015']
+                },
+                exclude: [/node_modules/]
+            },
+            {
+                test: /\.css$/,
+                exclude: /node_modules/,
+                use: [
+                    { loader:  MiniCssExtractPlugin.loader },
+                    {
+                        loader: 'css-loader',
+                        options: { importLoaders: 1 }
+                    },
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            config: {
+                              path: './webpack/'
+                            }
+                        }
+                    },
+                ]
+            },
         ]
-      },
-    ]
-  },
-	  plugins: [
-		  new MiniCssExtractPlugin({
-			  filename: devMode ? '[name].css' : '[name].[hash].css'
-		  }),
-          new LiveReloadPlugin()
+    },
+        plugins: [
+            new MiniCssExtractPlugin({
+                filename: '[name].css'
+            }),
+            devMode && new LiveReloadPlugin()
 	  ]
 }
 /*

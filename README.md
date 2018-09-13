@@ -1,8 +1,25 @@
 # client-ssr-boilerplate
 
-need to do
+REACT/REDUX
+- restructure SSR
+- enable TSlint
+- organize redux
+
+SERVER
+- add headers, middlewares
+
+WEBPACK
+- webpack global variables
+
+
+POSTCSS
+- organize css architecture
+
+SSR
+- add react-helmet
+
+DONE
 - enable styling in bundle with postCSS - done
 - hotreload for all - done
 - recreate PostCSS plugins - done
-- restructure SSR
-- enable TSlint
+- add production to webpack - done
