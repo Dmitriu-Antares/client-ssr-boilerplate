@@ -1,0 +1,3 @@
+.normal { border:1px solid black }
+.disabled { border:1px solid red }
+.error { border: 1px solid blue }
