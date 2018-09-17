@@ -1,9 +1,20 @@
+@value colors: '../../../styles/colors.css';
+@value first, second, third from colors;
+
+@value media: '../../../styles/media.css';
+@value small from media;
+
 .button {
     padding: 10px;
     margin-top: 10px;
+    color: second;
 
-    @media (max-width: 1000px) {
-        margin-top :12px;
+    & span {
+        color: red;
+    }
+
+    @media (small) {
+        margin-top: 20px;
     }
 }
 
