@@ -1,8 +1,8 @@
 module.exports = {
-  plugins: [
-      require('postcss-cssnext'),
-      require('postcss-import'),
-      require('css-mqpacker'),
-      require('cssnano'),
-  ]
+  plugins: {
+      'postcss-preset-env': {stage: 0},
+      'postcss-import': {},
+      'css-mqpacker': {},
+      'cssnano': {}
+  }
 }

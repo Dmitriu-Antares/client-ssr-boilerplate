@@ -1,1 +1,1 @@
-@value small: (max-width: 30em);
+@value --narrow-window (1400px <= width < 3000px);

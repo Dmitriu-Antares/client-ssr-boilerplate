@@ -2,7 +2,8 @@ const path = require('path');
 const devMode = process.env.NODE_ENV !== 'production'
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-var LiveReloadPlugin = require('webpack-livereload-plugin');
+var LiveReloadPlugin = require('webpack-livereload-plugin')
+const postcssPresetEnv = require ('postcss-preset-env')
 
 module.exports = {
     devtool: 'source-map',

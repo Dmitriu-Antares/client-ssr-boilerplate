@@ -1,1 +1,1 @@
-export const small: string;
+export const narrowWindow: string;

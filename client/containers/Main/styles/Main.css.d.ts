@@ -3,6 +3,5 @@ export const first: string;
 export const second: string;
 export const third: string;
 export const media: string;
-export const small: string;
 export const button: string;
 export const submit: string;
