@@ -6,6 +6,6 @@ import { fetchGists } from './actions'
 const initialState = [];
 
 const main = reducerWithInitialState(initialState)
-    .case(fetchGists.done, (state, { gists }:any) => ({...state, gists}))
+    .case(fetchGists.done, (state, { result }) => ({...state, gists: result}))
 
 export default main

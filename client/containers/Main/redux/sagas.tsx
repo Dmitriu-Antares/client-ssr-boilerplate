@@ -1,9 +1,9 @@
-import { all, call, put, takeEvery } from 'redux-saga/effects';
-import fetch from 'isomorphic-fetch';
+import { call, put, takeEvery } from 'redux-saga/effects'
+import fetch from 'isomorphic-fetch'
+import { Action } from 'typescript-fsa'
 
 import {
-    fetchGists,
-    FETCH_GISTS__FAILED
+    fetchGists
 } from './actions';
 
 const fetchUrl = () => fetch('https://api.github.com/gists', {
@@ -20,21 +20,20 @@ const fetchUrl = () => fetch('https://api.github.com/gists', {
     return response.json();
 })
 
-function* fetchGist() {
+function* fetchGist( action: Action<null> ) {
     try {
         const fetchGistsList = yield call(fetchUrl);
-        const gists = fetchGistsList.map(gist => ({
+        const gists:[{id:number,title:string}] = fetchGistsList.map(gist => ({
             id: gist.id,
             title: gist.description || 'pas de titre',
         }))
 
-        // @ts-ignore
-        yield put(fetchGists.done({ gists }));
+        yield put(fetchGists.done({
+            params: action.payload,
+            result: gists
+        }));
     } catch (error) {
-        yield put({
-            type: FETCH_GISTS__FAILED,
-            payload: error,
-        });
+        console.log(error)
     }
 }
 

@@ -1,1 +1,1 @@
-@value --narrow-window (1400px <= width < 3000px);
+@custom-media --small-viewport (min-width: 1400px);
