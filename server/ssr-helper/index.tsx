@@ -1,25 +1,13 @@
 import * as React from 'react'
 import * as ReactDOM from "react-dom"
-import * as express from "express"
-import {Provider} from "react-redux"
-import {BrowserRouter, StaticRouter} from "react-router-dom"
+import * as express from 'express'
 
-import sagas from '../client/rootSaga'
+
+import sagas from '../../client/rootSaga'
 import { configureStore, renderApp, html } from './helpers'
 
 
-export const renderClient = Component => {
-    const store = configureStore(window.initialState)
-    store.runSaga(sagas, store.dispatch)
-    return ReactDOM.hydrate(
-            <Provider store={store}>
-                <BrowserRouter>
-                    <Component />
-                </BrowserRouter>
-            </Provider>,
-            document.getElementById('root'))
 
-}
 
 export const renderServer = app => {
 

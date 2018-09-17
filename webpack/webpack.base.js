@@ -33,16 +33,20 @@ module.exports = {
                 test: /\.css$/,
                 exclude: /node_modules/,
                 use: [
-                    { loader:  MiniCssExtractPlugin.loader },
+                    'node-style-loader',
                     {
-                        loader: 'css-loader',
-                        options: { importLoaders: 1 }
+                        loader: 'typings-for-css-modules-loader',
+                        options: {
+                            modules: true,
+                            namedExport: true,
+                            camelCase: true,
+                        }
                     },
                     {
                         loader: 'postcss-loader',
                         options: {
                             config: {
-                              path: './webpack/'
+                                path: './webpack/'
                             }
                         }
                     },

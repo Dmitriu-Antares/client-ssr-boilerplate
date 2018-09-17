@@ -28,6 +28,7 @@ function* fetchGist() {
             title: gist.description || 'pas de titre',
         }))
 
+        // @ts-ignore
         yield put(fetchGists.done({ gists }));
     } catch (error) {
         yield put({
