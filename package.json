@@ -10,6 +10,7 @@
     "isomorphic-fetch": "^2.2.1",
     "react": "^16.4.2",
     "react-bootstrap": "^0.32.3",
+    "react-helmet": "^5.2.0",
     "react-redux": "^5.0.7",
     "react-redux-saga-server-side-render-helper": "^3.3.0",
     "react-router": "^4.3.1",
@@ -71,14 +72,14 @@
     "webpack-node-externals": "^1.7.2"
   },
   "scripts": {
-    "dev": "better-npm-run dev:start",
-    "dev:start": "nodemon ./dist/server.js",
-    "dev:start-client": "webpack --mode=development --config ./webpack/webpack.dev.client.js --watch",
-    "dev:start-server": "webpack --mode=development --config ./webpack/webpack.dev.server.js --watch",
+    "start": "node ./dist/bundle.js",
     "prod": "better-npm-run prod:start",
     "prod:build-client": "webpack --mode=production --config ./webpack/webpack.dev.client.js",
     "prod:build-server": "webpack --mode=production --config ./webpack/webpack.prod.server.js",
-    "start": "node ./dist/bundle.js"
+    "dev": "better-npm-run dev:start",
+    "dev:start": "nodemon ./dist/server.js",
+    "dev:start-client": "webpack --mode=development --config ./webpack/webpack.dev.client.js --watch",
+    "dev:start-server": "webpack --mode=development --config ./webpack/webpack.dev.server.js --watch"
   },
   "betterScripts": {
     "dev:start": {
@@ -88,7 +89,10 @@
       }
     },
     "prod:start": {
-      "command": "run-s prod:*"
+      "command": "run-s prod:*",
+      "env": {
+        "NODE_ENV": "production"
+      }
     }
   },
   "repository": "git+https://github.com/Dmitriu-Antares/client-ssr-boilerplate.git",

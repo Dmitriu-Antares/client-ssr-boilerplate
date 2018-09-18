@@ -5,6 +5,7 @@ const webpack = require('webpack')
 
 const config  = {
   entry: './client/index.tsx',
+  devtool: 'source-map',
   output: {
     filename: 'client.js',
     path: path.join(__dirname, '../dist')

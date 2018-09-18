@@ -2,7 +2,7 @@ import { Main, Media } from '../containers'
 
 
 export default [
-    { path: '/q',
+    { path: '/',
         component: Main,
         loadData: () => {},
     },

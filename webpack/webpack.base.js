@@ -1,11 +1,10 @@
 const path = require('path');
-const devMode = process.env.NODE_ENV !== 'production'
-
-var LiveReloadPlugin = require('webpack-livereload-plugin')
-const postcssPresetEnv = require ('postcss-preset-env')
+const LiveReloadPlugin = require('webpack-livereload-plugin')
+const DeleteFiles = require('./plugins/production.plugins')
+const config = require('./plugins/config')
+const webpack = require('webpack')
 
 module.exports = {
-    devtool: 'source-map',
     resolve: {
         extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
     },
@@ -55,8 +54,12 @@ module.exports = {
         ]
     },
         plugins: [
-            devMode && new LiveReloadPlugin()
-	  ]
+            new webpack.DefinePlugin({
+                __ENV__: JSON.stringify(config)
+            }),
+            new LiveReloadPlugin(),
+            new DeleteFiles({options: true})
+	    ]
 }
 /*
 module.exports = function(env, argv){

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from "react-redux";
 import {fetchGists as fetchGistsAction} from "./redux/actions";
 import { takeGists } from "./redux/selectors";
+import Helmet from "react-helmet";
 
 import * as styles from './styles/Main.css'
 
@@ -32,6 +33,11 @@ export default class Main extends Component<any,{}> {
     render(){
         return(
             <div>
+
+                <Helmet>
+                    <title>Contact Page</title>
+                    <meta name="description" content="This is a proof of concept for React SSRss" />
+                </Helmet>
                 Main
                 { this.renderGists() }
             </div>

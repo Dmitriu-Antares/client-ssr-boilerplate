@@ -12,6 +12,8 @@ import sagas from "../../client/rootSaga";
 import * as ReactDOM from "react-dom";
 import {BrowserRouter} from "react-router-dom";
 import {collectInitial, collectContext} from 'node-style-loader/collect'
+import Helmet from "react-helmet";
+
 
 declare global {
     interface Window { initialState: any; }
@@ -57,13 +59,15 @@ const initialStyleTag = collectInitial()
 export const html = ({body}, initialState) => {
     const [contextStyleTag, reactString] = collectContext(
         () => ReactDOMServer.renderToString(React.createElement('div', initialState, body)))
+    const helmetData = Helmet.renderStatic( );
 
     return `
       <!DOCTYPE html>
       <html>
           <head>
-          <title>some title</title>
-              <link href="main.css" rel="stylesheet">
+              <meta charset="utf-8">
+              ${ helmetData.title.toString( ) }
+              ${ helmetData.meta.toString( ) }
               ${initialStyleTag}
               ${contextStyleTag}
           </head>      

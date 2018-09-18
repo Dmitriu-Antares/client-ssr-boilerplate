@@ -4,7 +4,6 @@ IN PROCESS:
 
 REACT/REDUX
 - enable TSlint
-- where I need to add my interfaces
 - integrate some handler for axios
 - Ramda.js
 
@@ -20,14 +19,11 @@ SERVER
 - add headers, middlewares
 
 WEBPACK
-- webpack global variables
-- delete client.js from builded version
 
 POSTCSS
-- organize media and libriares
 
 SSR
-- add react-helmet
+
 
 
 
@@ -45,3 +41,8 @@ DONE
 - organize css architecture: - done
     - choose your methodology - done
     - organize variables - done
+    - organize media and libriares - done
+- add react-helmet - done
+- where I need to add my interfaces - done
+- webpack global variables - done
+- delete client.js from builded version - done
