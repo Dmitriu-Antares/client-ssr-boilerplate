@@ -3,10 +3,11 @@ import { connect } from "react-redux";
 import {fetchGists as fetchGistsAction} from "./redux/actions";
 import { takeGists } from "./redux/selectors";
 import Helmet from "react-helmet";
-
+import { Props, State, Gists } from './types'
+import { GlobalState } from '../../commonTypes/store'
 import * as styles from './styles/Main.css'
 
-const mapStateToProps = ( state ) => ({
+const mapStateToProps = ( state:GlobalState ) => ({
     gists: takeGists(state)
 })
 
@@ -16,17 +17,16 @@ const mapDispatchToProps = ( dispatch: any ) => ({
 
 @(connect(mapStateToProps, mapDispatchToProps) as any)
 
-export default class Main extends Component<any,{}> {
+export default class Main extends Component<Props, State> {
     componentWillMount() {
         this.props.loadGists()
     }
 
     renderGists = () => {
         const { gists } = this.props
-
         return (
             <div className={styles.submit}>
-                { gists && gists.map((gist, key) => (<div className={styles.button} key={key}>{gist.title}</div>)) }
+                { gists && gists.map((gist, key) => (<div className={styles.button} key={key}>{gist.description}</div>)) }
             </div>
         )}
 

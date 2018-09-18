@@ -11,6 +11,7 @@ import * as React from "react"
 import sagas from "../../client/rootSaga";
 import * as ReactDOM from "react-dom";
 import {BrowserRouter} from "react-router-dom";
+// @ts-ignore
 import {collectInitial, collectContext} from 'node-style-loader/collect'
 import Helmet from "react-helmet";
 
@@ -41,7 +42,7 @@ export const configureStore = (initialState = {}) => {
     return store;
 };
 
-export const renderApp = async (store, context:{} = {}, req) => {
+export const renderApp = async (store:any, context:{} = {}, req:any) => {
     const app = (
         <Provider store={store}>
             <StaticRouter
@@ -56,7 +57,7 @@ export const renderApp = async (store, context:{} = {}, req) => {
 }
 const initialStyleTag = collectInitial()
 
-export const html = ({body}, initialState) => {
+export const html = ({body}:any, initialState:any) => {
     const [contextStyleTag, reactString] = collectContext(
         () => ReactDOMServer.renderToString(React.createElement('div', initialState, body)))
     const helmetData = Helmet.renderStatic( );
@@ -84,7 +85,7 @@ export const html = ({body}, initialState) => {
 }
 
 
-export const renderClient = (Component) => {
+export const renderClient = (Component:any) => {
     const store = configureStore(window.initialState)
     store.runSaga(sagas, store.dispatch)
     return ReactDOM.hydrate(

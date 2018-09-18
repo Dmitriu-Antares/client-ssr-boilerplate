@@ -1,7 +1,8 @@
 import actionCreatorFactory from 'typescript-fsa';
+import { Gists } from '../types'
 
 const actionCreator = actionCreatorFactory();
 
-export const FETCH_GISTS = 'FETCH_GISTS'
+export const FETCH_GISTS:string = 'FETCH_GISTS'
 
-export const fetchGists = actionCreator.async(FETCH_GISTS)
+export const fetchGists = actionCreator.async<null, [Gists], Error>(FETCH_GISTS)

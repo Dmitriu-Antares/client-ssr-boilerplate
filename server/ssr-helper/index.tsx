@@ -2,18 +2,14 @@ import * as React from 'react'
 import * as ReactDOM from "react-dom"
 import * as express from 'express'
 
-
 import sagas from '../../client/rootSaga'
 import { configureStore, renderApp, html } from './helpers'
 
-
-
-
-export const renderServer = app => {
+export const renderServer = (app: any) => {
 
     app.use(express.static('dist'))
 
-    app.get('*',(req,res) => {
+    app.get('*',(req:any,res:any) => {
         const store:any = configureStore()
         const context = {}
         const rootTask = store.runSaga(sagas)

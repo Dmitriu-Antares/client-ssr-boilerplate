@@ -1,9 +1,9 @@
-# client-ssr-boilerplate
+# Server side rendering with React.js, React Router v4, React Helmet, Redux Sagas, Typescript and CSS Modules
 
 IN PROCESS:
 
 REACT/REDUX
-- enable TSlint
+- enable TSlint/
 - integrate some handler for axios
 - Ramda.js
 

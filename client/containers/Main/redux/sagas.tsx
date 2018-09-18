@@ -1,6 +1,8 @@
 import { call, put, takeEvery } from 'redux-saga/effects'
 import fetch from 'isomorphic-fetch'
 import { Action } from 'typescript-fsa'
+import { Gists } from '../types'
+
 
 import {
     fetchGists
@@ -23,9 +25,9 @@ const fetchUrl = () => fetch('https://api.github.com/gists', {
 function* fetchGist( action: Action<null> ) {
     try {
         const fetchGistsList = yield call(fetchUrl);
-        const gists:[{id:number,title:string}] = fetchGistsList.map(gist => ({
+        const gists:[Gists] = fetchGistsList.map((gist:Gists) => ({
             id: gist.id,
-            title: gist.description || 'pas de titre',
+            description: gist.description || 'pas de titre',
         }))
 
         yield put(fetchGists.done({

@@ -4,11 +4,14 @@
     "jsx": "react",
     "module": "ESNext",
     "moduleResolution": "node",
-    "noImplicitAny": false,
+    "noImplicitAny": true,
     "sourceMap": true,
     "target": "es5",
     "lib": ["es5", "es6", "dom"],
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "typeRoots": [
+      "node_modules/@types"
+    ]
   },
   "exclude": [
     "node_modules",
