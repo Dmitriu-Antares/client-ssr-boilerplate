@@ -55,6 +55,7 @@ export const renderApp = async (store:any, context:{} = {}, req:any) => {
     const body = await ReactDOMServer.renderToString(app)
     return body
 }
+
 const initialStyleTag = collectInitial()
 
 export const html = ({body}:any, initialState:any) => {

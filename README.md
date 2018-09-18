@@ -3,7 +3,6 @@
 IN PROCESS:
 
 REACT/REDUX
-- enable TSlint/
 - integrate some handler for axios
 - Ramda.js
 
@@ -16,17 +15,9 @@ DEPLOY:
 - nginx files
 
 SERVER
-- add headers, middlewares
-
 WEBPACK
-
 POSTCSS
-
 SSR
-
-
-
-
 
 DONE
 - enable styling in bundle with postCSS - done
@@ -46,3 +37,5 @@ DONE
 - where I need to add my interfaces - done
 - webpack global variables - done
 - delete client.js from builded version - done
+- enable TSlint and create interfaces - done
+- add headers, middlewares - done
