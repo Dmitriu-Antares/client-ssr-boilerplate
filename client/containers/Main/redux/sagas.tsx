@@ -3,6 +3,8 @@ import fetch from 'isomorphic-fetch'
 import { Action } from 'typescript-fsa'
 import { Gists } from '../types'
 
+import { getGists } from '../../../api'
+
 
 import {
     fetchGists
@@ -24,7 +26,8 @@ const fetchUrl = () => fetch('https://api.github.com/gists', {
 
 function* fetchGist( action: Action<null> ) {
     try {
-        const fetchGistsList = yield call(fetchUrl);
+        const fetchGistsList = yield call(getGists);
+        console.log(fetchGistsList)
         const gists:[Gists] = fetchGistsList.map((gist:Gists) => ({
             id: gist.id,
             description: gist.description || 'pas de titre',

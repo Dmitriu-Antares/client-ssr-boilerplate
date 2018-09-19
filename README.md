@@ -3,8 +3,12 @@
 IN PROCESS:
 
 REACT/REDUX
+- adding global medias
 - integrate some handler for axios
 - Ramda.js
+- types for decorators
+- adding images
+
 
 TESTING:
 - integrage smth for TDD (jest..)
@@ -15,6 +19,8 @@ DEPLOY:
 - nginx files
 
 SERVER
+- adding 404 page
+
 WEBPACK
 POSTCSS
 SSR

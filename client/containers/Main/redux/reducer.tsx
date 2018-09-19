@@ -1,12 +1,10 @@
 import { reducerWithInitialState } from "typescript-fsa-reducers";
 import { fetchGists } from './actions'
-import { Gists } from '../types'
+import { ReduxState } from '../types'
 
-interface State {
-    gists: [Gists] | []
-}
 
-const initialState:State = {
+
+const initialState:ReduxState = {
     gists: []
 };
 

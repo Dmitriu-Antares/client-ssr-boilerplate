@@ -71,7 +71,6 @@ export const html = ({body}:any, initialState:any) => {
               ${ helmetData.title.toString( ) }
               ${ helmetData.meta.toString( ) }
               ${initialStyleTag}
-              ${contextStyleTag}
           </head>      
         <body style="margin:0">
             <script>

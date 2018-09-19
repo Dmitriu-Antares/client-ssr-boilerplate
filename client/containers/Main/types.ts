@@ -11,4 +11,6 @@ export interface State {
     mau: boolean
 }
 
-
+export interface ReduxState {
+    gists: [Gists] | []
+}

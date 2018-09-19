@@ -1,5 +1,5 @@
 import * as express from 'express'
-import { renderServer } from './ssr-helper/index'
+import { renderServer } from './ssr-helper'
 
 const app = express();
 const port = 3030
