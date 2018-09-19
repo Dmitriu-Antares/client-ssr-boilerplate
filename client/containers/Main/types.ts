@@ -3,6 +3,10 @@ export interface Gists {
     description: string
 }
 
+export interface ReduxState {
+    gists: [Gists] | []
+}
+
 export interface Props {
     gists: [Gists]
     loadGists(): void
@@ -11,6 +15,3 @@ export interface State {
     mau: boolean
 }
 
-export interface ReduxState {
-    gists: [Gists] | []
-}

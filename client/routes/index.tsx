@@ -2,11 +2,13 @@ import { Main, Media } from '../containers'
 
 
 export default [
-    { path: '/',
+    {
+        path: '/',
         component: Main,
         loadData: () => {},
     },
-    { path: '/w',
+    {
+        path: '/w',
         component: Media,
         loadData: () => {},
     },

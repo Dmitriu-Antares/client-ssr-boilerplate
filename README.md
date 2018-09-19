@@ -3,11 +3,10 @@
 IN PROCESS:
 
 REACT/REDUX
-- adding global medias
-- integrate some handler for axios
+- maybe need some refactor for redux
 - Ramda.js
-- types for decorators
-- adding images
+- adding 404 page
+
 
 
 TESTING:
@@ -19,7 +18,7 @@ DEPLOY:
 - nginx files
 
 SERVER
-- adding 404 page
+
 
 WEBPACK
 POSTCSS
@@ -45,3 +44,6 @@ DONE
 - delete client.js from builded version - done
 - enable TSlint and create interfaces - done
 - add headers, middlewares - done
+- adding images - done
+- integrate some handler for axios - done
+- adding global medias - done

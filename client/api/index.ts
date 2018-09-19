@@ -1,3 +1,3 @@
 import api from './helper'
 
-export const getGists = api.get('gists')
+export const getGists = () => api.get('gists')

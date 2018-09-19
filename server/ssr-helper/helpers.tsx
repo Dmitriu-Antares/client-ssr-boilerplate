@@ -15,11 +15,6 @@ import {BrowserRouter} from "react-router-dom";
 import {collectInitial, collectContext} from 'node-style-loader/collect'
 import Helmet from "react-helmet";
 
-
-declare global {
-    interface Window { initialState: any; }
-}
-
 const sagaMiddleware = createSagaMiddleware()
 
 const reduxMiddlewares = [
@@ -43,12 +38,16 @@ export const configureStore = (initialState = {}) => {
 };
 
 export const renderApp = async (store:any, context:{} = {}, req:any) => {
+
     const app = (
         <Provider store={store}>
             <StaticRouter
                 location={req.url}
                 context={context}>
-                <App/>
+                {
+                    // @ts-ignore
+                    <App/>
+                }
             </StaticRouter>
         </Provider>
     )
@@ -68,6 +67,7 @@ export const html = ({body}:any, initialState:any) => {
       <html>
           <head>
               <meta charset="utf-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=contain">
               ${ helmetData.title.toString( ) }
               ${ helmetData.meta.toString( ) }
               ${initialStyleTag}

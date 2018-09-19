@@ -79,8 +79,8 @@
     "prod:build-server": "webpack --mode=production --config ./webpack/webpack.prod.server.js",
     "dev": "better-npm-run dev:start",
     "dev:start": "nodemon ./dist/server.js",
-    "dev:start-client": "webpack --mode=development --config ./webpack/webpack.dev.client.js --watch",
-    "dev:start-server": "webpack --mode=development --config ./webpack/webpack.dev.server.js --watch"
+    "dev:start-client": "webpack --mode=development  --config ./webpack/webpack.dev.client.js --watch",
+    "dev:start-server": "webpack --mode=development  --config ./webpack/webpack.dev.server.js --watch"
   },
   "betterScripts": {
     "dev:start": {

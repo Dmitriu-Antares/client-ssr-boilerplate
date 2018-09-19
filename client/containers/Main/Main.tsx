@@ -4,8 +4,11 @@ import {fetchGists as fetchGistsAction} from "./redux/actions";
 import { takeGists } from "./redux/selectors";
 import Helmet from "react-helmet";
 import { Props, State, Gists } from './types'
-import { GlobalState } from '../../commonTypes/store'
+import { GlobalState } from '../../common/store'
 import * as styles from './styles/Main.css'
+
+const mainImage = require('../../images/main.jpg')
+
 
 const mapStateToProps = ( state:GlobalState ) => ({
     gists: takeGists(state)
@@ -40,6 +43,7 @@ export default class Main extends Component<Props, State> {
                 </Helmet>
                 Main
                 { this.renderGists() }
+                <img src={mainImage} alt=""/>
             </div>
         )
     }
