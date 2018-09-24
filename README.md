@@ -1,28 +1,10 @@
 # Server side rendering with React.js, React Router v4, React Helmet, Redux Sagas, Typescript and CSS Modules
 
-IN PROCESS:
+SMTH TO THINK ABOUT:
+- TDD tests via jest
+- Docker
 
-REACT/REDUX
-- maybe need some refactor for redux
-- Ramda.js
-- adding 404 page
-
-
-
-TESTING:
-- integrage smth for TDD (jest..)
-- integrate Cypress for autotesting
-
-DEPLOY:
-- docker container
-- nginx files
-
-SERVER
-
-
-WEBPACK
-POSTCSS
-SSR
+- adding chunks with @react-loadable - real great stuff for performance!
 
 DONE
 - enable styling in bundle with postCSS - done
