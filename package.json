@@ -74,9 +74,12 @@
   },
   "scripts": {
     "start": "node ./dist/bundle.js",
-    "prod": "better-npm-run prod:start",
+    "build-prod": "better-npm-run prod:start",
     "prod:build-client": "webpack --mode=production --config ./webpack/webpack.dev.client.js",
     "prod:build-server": "webpack --mode=production --config ./webpack/webpack.prod.server.js",
+    "build-dev": "better-npm-run dev:build",
+    "build-dev:client": "webpack --mode=development --config ./webpack/webpack.dev.client.js",
+    "build-dev:server": "webpack --mode=development --config ./webpack/webpack.dev.server.js",
     "dev": "better-npm-run dev:start",
     "dev:start": "nodemon ./dist/server.js",
     "dev:start-client": "webpack --mode=development  --config ./webpack/webpack.dev.client.js --watch",
@@ -93,6 +96,12 @@
       "command": "run-s prod:*",
       "env": {
         "NODE_ENV": "production"
+      }
+    },
+    "dev:build": {
+      "command": "run-s build-dev:*",
+      "env": {
+        "NODE_ENV": "development"
       }
     }
   },

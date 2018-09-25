@@ -21,7 +21,7 @@ const mapDispatchToProps = ( dispatch: any ) => ({
 @(connect(mapStateToProps, mapDispatchToProps) as any)
 
 export default class App extends React.Component<Props,State>{
-    componentWillMount() {
+    componentDidMount() {
         this.props.defineCli(typeof(window) !== "undefined")
     }
 

@@ -1,9 +1,33 @@
 # Server side rendering with React.js, React Router v4, React Helmet, Redux Sagas, Typescript and CSS Modules
 
+Every FE developer thinks that template on current project is afwul, and create better solution.
+So I tried to do my best too :)
+
+It`s only boilerplate with examples of "how to use" components/routes/http req/redux in different situations, 
+and it is more about architecture for complex apps,
+so there is nothing cool on a interface part (for now).
+
+#Development
+Frontend:
+```sh
+yarn
+yarn build-dev
+yarn dev
+```
+
+
+#Production
+Frontend:
+```sh
+yarn 
+yarn build-prod
+yarn start
+```
+
+
 SMTH TO THINK ABOUT:
 - TDD tests via jest
 - Docker
-
 - adding chunks with @react-loadable - real great stuff for performance!
 
 DONE
