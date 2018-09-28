@@ -1,5 +1,5 @@
-@import '../../../styles/media.css';
-@import  '../../../styles/colors.css';
+@import '../../../common/styles/media.css';
+@import '../../../common/styles/colors.css';
 
 .button {
     padding: 10px;

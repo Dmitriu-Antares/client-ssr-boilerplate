@@ -23,7 +23,9 @@ yarn
 yarn build-prod
 yarn start
 ```
-
+TODO LIST:
+- dist folder - chunks in different folder
+- think about architecture with styles, because of server imports
 
 SMTH TO THINK ABOUT:
 - TDD tests via jest
