@@ -3,6 +3,8 @@ const LiveReloadPlugin = require('webpack-livereload-plugin')
 const DeleteFiles = require('./plugins/production.plugins')
 const config = require('./plugins/config')
 const webpack = require('webpack')
+const { ReactLoadablePlugin } = require('react-loadable/webpack')
+
 
 module.exports = {
     resolve: {
@@ -13,6 +15,16 @@ module.exports = {
         net: "empty"
     },
     externals: ['express'],
+    plugins: [
+        new ReactLoadablePlugin({
+            filename: './dist/react-loadable.json',
+        }),
+        new webpack.DefinePlugin({
+            __ENV__: JSON.stringify(config)
+        }),
+        new LiveReloadPlugin(),
+        new DeleteFiles({options: true})
+    ],
     module: {
         rules: [
             {
@@ -70,14 +82,7 @@ module.exports = {
                 ],
             }
         ]
-    },
-        plugins: [
-            new webpack.DefinePlugin({
-                __ENV__: JSON.stringify(config)
-            }),
-            new LiveReloadPlugin(),
-            new DeleteFiles({options: true})
-	    ]
+    }
 }
 /*
 module.exports = function(env, argv){

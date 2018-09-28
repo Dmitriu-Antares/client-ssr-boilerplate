@@ -23,13 +23,12 @@ export const renderServer = (app: any) => {
         const context = {}
         const rootTask = store.runSaga(sagas)
         const preRenderBody:any = renderApp(store, {}, req)
-
         preRenderBody.then(() => {
             rootTask.done.then(() => {
-                const postRenderedBody = renderApp(store, {}, req)
+                const postRenderedBody:any = renderApp(store, {}, req)
 
-                postRenderedBody.then(body => {
-                    res.send(html({body}, store.getState()))
+                postRenderedBody.then(response => {
+                    res.send(html({body:response.body}, response.bundles , store.getState()))
                 })
             })
         })

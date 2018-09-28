@@ -5,12 +5,12 @@ export interface addMedia {
 }
 
 export interface ReduxState {
-    isClient: boolean
+    isClient: boolean,
     media: addMedia
 }
 
 export interface Props extends ReduxState {
-    defineCli(boolean): void,
+    defineCli(boolean): void
     setMedia({}:addMedia): void
 }
 

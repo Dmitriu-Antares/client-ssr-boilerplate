@@ -21,16 +21,19 @@ const mapDispatchToProps = ( dispatch: any ) => ({
 @(connect(mapStateToProps, mapDispatchToProps) as any)
 
 export default class App extends React.Component<Props,State>{
-    componentDidMount() {
-        this.props.defineCli(typeof(window) !== "undefined")
-    }
-
-    componentDidUpdate(prevProps) {
-        const { isClient } = this.props
-        if(isClient) {
-            prevProps.isClient !== isClient && this.addMedia()
+    componentWillMount() {
+        if(typeof(window) !== "undefined") {
+            this.addMedia()
             window.addEventListener('resize', this.addMedia)
         }
+        else {
+            this.props.setMedia({
+                isMobile: false,
+                isDesktop: true,
+                isTablet: false
+            })
+        }
+        this.props.defineCli(typeof(window) !== "undefined")
     }
 
     componentWillUnmount () {
@@ -51,6 +54,7 @@ export default class App extends React.Component<Props,State>{
     }
 
     render(){
+        const { media } = this.props
         return (
             <div>
                 <h1>first ssr</h1>

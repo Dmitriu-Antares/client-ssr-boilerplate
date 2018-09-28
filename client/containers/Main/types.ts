@@ -9,6 +9,7 @@ export interface ReduxState {
 
 export interface Props {
     gists: [Gists]
+    isMobile: boolean
     loadGists(): void
 }
 export interface State {

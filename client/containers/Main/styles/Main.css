@@ -1,7 +1,5 @@
 @import '../../../styles/media.css';
-
-@value colors: '../../../styles/colors.css';
-@value first, second, third from colors;
+@import  '../../../styles/colors.css';
 
 .button {
     padding: 10px;
