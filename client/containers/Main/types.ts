@@ -1,5 +1,5 @@
 export interface Gists {
-    id:number,
+    id: number
     description: string
 }
 
@@ -15,4 +15,3 @@ export interface Props {
 export interface State {
     mau: boolean
 }
-

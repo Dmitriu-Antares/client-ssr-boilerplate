@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from 'axios'
 
 class Api {
     private instance = null
@@ -11,11 +11,14 @@ class Api {
     }
     activateMiddleware() {
         const instance = axios.create(this.config)
-        instance.interceptors.response.use( response => {
-            return response;
-        }, error =>  {
-            return Promise.reject(error);
-        });
+        instance.interceptors.response.use(
+            (response) => {
+                return response
+            },
+            (error) => {
+                return Promise.reject(error)
+            },
+        )
         this.instance = instance
     }
     returnResponse(res) {
@@ -28,7 +31,6 @@ class Api {
         return this.instance.post(path, data).then(this.returnResponse)
     }
 }
-const api = new Api();
+const api = new Api()
 
 export default api
-

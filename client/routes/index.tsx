@@ -1,6 +1,5 @@
 import { Main, Media } from '../containers'
 
-
 export default [
     {
         path: '/',
@@ -12,4 +11,4 @@ export default [
         component: Media,
         loadData: () => {},
     },
-];
+]

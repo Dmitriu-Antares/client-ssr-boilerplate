@@ -1,0 +1,44 @@
+{
+  "extends": [
+    "tslint-react",
+    "tslint-eslint-rules",
+    "tslint-plugin-prettier"
+  ],
+  "plugins": [
+    "react"
+  ],
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "rules": {
+    "no-console": "off",
+    //"no-nested-ternary": "off",
+    "no-return-assign": ["error", "except-parens"],
+    "no-underscore-dangle": ["error", { "allow": ["__"] }],
+    //"import/prefer-default-export": "off",
+    //"import/no-default-export": "error",
+    "jsx-a11y/anchor-is-valid": ["error", { "specialLink": ["to"]}],
+    "member-access": false,
+    "import-name": false,
+    "prettier": [true, {
+      "arrowParens": "always",
+      "jsxBracketSameLine": false,
+      "trailingComma": "all",
+      "printWidth": 120,
+      "tabWidth": 4,
+      "semi": false,
+      "singleQuote": true
+    }],
+    "ordered-imports": false,
+    "no-implicit-dependencies": false,
+    "no-submodule-imports": false,
+    "no-empty-interface": false,
+    "object-literal-shorthand": false,
+    "interface-name": [true, "never-prefix"],
+    "semicolon": false,
+    "jsx-no-multiline-js": false,
+    "jsx-boolean-value": false,
+    "jsx-no-lambda": false
+  }
+}
