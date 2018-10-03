@@ -1,11 +1,11 @@
 
 const environment = {
     development: {
-        apiPath: 'https://api.github.com/',
+        apiPath: 'http://localhost:3030/api/',
         isClient: typeof(window) !== "undefined"
     },
     production: {
-        apiPath: 'https://api.github.com/',
+        apiPath: 'http://localhost:3030/api/',
         isClient: typeof(window) !== "undefined"
     }
 }[process.env.NODE_ENV || 'development'];

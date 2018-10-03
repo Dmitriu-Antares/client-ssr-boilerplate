@@ -6,7 +6,9 @@
   "dependencies": {
     "@types/react-redux": "^6.0.7",
     "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
     "express": "^4.16.3",
+    "faker": "^4.1.0",
     "isomorphic-fetch": "^2.2.1",
     "react": "^16.4.2",
     "react-bootstrap": "^0.32.3",
@@ -83,7 +85,7 @@
     "build-dev:client": "webpack --mode=development --config ./webpack/webpack.dev.client.js",
     "build-dev:server": "webpack --mode=development --config ./webpack/webpack.dev.server.js",
     "dev": "better-npm-run dev:start",
-    "dev:start": "nodemon ./dist/server.js",
+    "dev:start": "nodemon --trace-warnings ./dist/server.js",
     "dev:start-client": "webpack --mode=development  --config ./webpack/webpack.dev.client.js --watch",
     "dev:start-server": "webpack --mode=development  --config ./webpack/webpack.dev.server.js --watch"
   },

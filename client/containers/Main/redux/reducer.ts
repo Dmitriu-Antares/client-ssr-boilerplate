@@ -1,5 +1,5 @@
 import { reducerWithInitialState } from "typescript-fsa-reducers";
-import { fetchGists } from './actions'
+import { fetchBlockchains } from './actions'
 import { ReduxState } from '../types'
 
 
@@ -8,7 +8,7 @@ const initialState:ReduxState = {
     gists: []
 };
 
-const main = reducerWithInitialState(initialState)
-    .case(fetchGists.done, (state, { result }) => ({...state, gists: result}))
+const blockchians = reducerWithInitialState(initialState)
+    .case(fetchBlockchains.done, (state, { result }) => ({...state, blockchains: result}))
 
-export default main
+export default blockchians

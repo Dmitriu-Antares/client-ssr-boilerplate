@@ -1,14 +1,14 @@
-export interface Gists {
+export interface Blockchains {
     id:number,
     description: string
 }
 
 export interface ReduxState {
-    gists: [Gists] | []
+    //gists: [Gists] | []
 }
 
 export interface Props {
-    gists: [Gists]
+    //gists: [Gists]
     isMobile: boolean
     loadGists(): void
 }

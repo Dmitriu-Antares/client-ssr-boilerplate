@@ -4,9 +4,9 @@ import {connect} from "react-redux";
 import Helmet from "react-helmet";
 import { GlobalState } from '../../common/store'
 import { getIsMobile } from "../../common/selectors";
-import {fetchGists as fetchGistsAction} from "./redux/actions";
-import { takeGists } from "./redux/selectors";
-import { Props, State, Gists } from './types'
+import { fetchBlockchains } from "./redux/actions";
+import { takeBlockchains } from "./redux/selectors";
+import { Props, State } from './types'
 
 import './styles/Main.css'
 
@@ -20,20 +20,20 @@ const MainDesktop = Loadable({
     loading: () => <div> </div>
 })
 
-const mapStateToProps = ( state:GlobalState ) => ({
-    gists: takeGists(state),
+const mapStateToProps = ( state:any ) => ({
+    blockchains: takeBlockchains(state),
     isMobile: getIsMobile(state),
 })
 
 const mapDispatchToProps = ( dispatch: any ) => ({
-    loadGists: () => { dispatch(fetchGistsAction.started(null)) }
+    loadBlockchains: () => { dispatch(fetchBlockchains.started(null)) }
 })
 
 @(connect(mapStateToProps, mapDispatchToProps) as any)
 
-export default class Main extends Component<Props, State> {
+export default class Main extends Component<{any}, {any}> {
     componentWillMount() {
-        this.props.loadGists()
+        this.props.loadBlockchains()
     }
 
     render() {

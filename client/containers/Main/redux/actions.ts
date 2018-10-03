@@ -1,8 +1,8 @@
 import actionCreatorFactory from 'typescript-fsa';
-import { Gists } from '../types'
+import { Blockchains } from '../types'
 
 const actionCreator = actionCreatorFactory();
 
-export const FETCH_GISTS:string = 'FETCH_GISTS'
+export const FETCH_BLOCKCHAINS:string = 'FETCH_BLOCKCHAINS'
 
-export const fetchGists = actionCreator.async<null, [Gists], Error>(FETCH_GISTS)
+export const fetchBlockchains = actionCreator.async<null, [Blockchains], Error>(FETCH_BLOCKCHAINS)

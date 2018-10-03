@@ -1,33 +1,31 @@
 import { call, put, takeLatest } from 'redux-saga/effects'
 import { Action } from 'typescript-fsa'
-import { Gists } from '../types'
+import { Blockchains } from '../types'
 
-import { getGists } from '../../../api'
+import { getBlockchains } from '../../../api'
 
 
 import {
-    fetchGists
+    fetchBlockchains
 } from './actions';
 
-function* fetchGist( action: Action<null> ) {
+function* fetchBlockchainsList( action: Action<null> ) {
     try {
-        const fetchGistsList = yield call(getGists);
-        const gists:[Gists] = fetchGistsList.map((gist:Gists) => ({
-            id: gist.id,
-            description: gist.description || 'pas de titre',
-        }))
-
-        yield put(fetchGists.done({
+        const fetchBlockchainList = yield call(getBlockchains);
+        console.log(fetchBlockchainList)
+        /*
+        yield put(fetchBlockchains.done({
             params: action.payload,
             result: gists
         }));
+        */
     } catch (error) {
         // console.log(error)
     }
 }
 
-const mainSaga = function* fetchGistsSaga() {
-    yield takeLatest(fetchGists.started, fetchGist);
+const blockchainsSaga = function* fetchGistsSaga() {
+    yield takeLatest(fetchBlockchains.started, fetchBlockchainsList);
 }
 
-export default mainSaga
+export default blockchainsSaga

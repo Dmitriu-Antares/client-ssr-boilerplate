@@ -2,7 +2,10 @@ import * as React from 'react'
 import * as ReactDOM from "react-dom"
 import * as express from 'express'
 import { Request, Response } from 'express';
+import bodyParser from 'body-parser';
 
+import blockchain from '../api/controllers/blockhain'
+import block from '../api/controllers/block'
 import sagas from '../../client/rootSaga'
 import { configureStore, renderApp, html } from './helpers'
 
@@ -14,11 +17,20 @@ export const renderServer = (app: any) => {
         res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With')
         next()
     })
-    app.options('/*', (req: Request, res: Response, next:any) => {
-        res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
-        res.send(200)
-    })
-    app.get('*',(req: Request, res: Response) => {
+    app.all('*', function(req, res, next) {
+        res.header('Access-Control-Allow-Origin', '*');
+        res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+        res.header('Access-Control-Allow-Headers', 'Content-Type');
+        if ('OPTIONS' == req.method) {
+            res.sendStatus(200);
+        } else {
+            next();
+        }
+    });
+    app.use(bodyParser.json());
+    app.use('/api/blockhains', blockchain)
+    app.use('/api/block', block)
+    app.use('*',(req: Request, res: Response) => {
         const store:any = configureStore()
         const context = {}
         const rootTask = store.runSaga(sagas)
@@ -34,4 +46,7 @@ export const renderServer = (app: any) => {
         })
         store.close()
     })
+
+
+
 }
