@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-import blockchians from './containers/Main/redux/reducer'
-import global from './containers/App/redux/reducer'
+import blockchains from './containers/Blockchains/redux/reducer'
+import global from './containers/Header/redux/reducer'
 
 const rootReducer =
     combineReducers({
-        blockchians,
+        blockchains,
         global,
     })
 

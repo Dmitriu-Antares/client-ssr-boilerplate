@@ -1,5 +1,7 @@
 # Blockchain client side
 
+address: http://localhost:3030/
+
 #Development
 Frontend:
 ```sh

@@ -1,5 +1,5 @@
 import actionCreatorFactory from 'typescript-fsa';
-import { addMedia } from '../types'
+import { addMedia } from '../../Header/types'
 
 const actionCreator = actionCreatorFactory();
 
@@ -9,4 +9,4 @@ export const ADD_CLIENT:string = 'ADD_CLIENT'
 
 export const mediaDefintion = actionCreator<addMedia>(MEDIA_DEFINITION)
 export const defineClient = actionCreator<null>(IS_CLIENT)
-export const addClient = actionCreator<boolean>(ADD_CLIENT)
+export const addClient = actionCreator<boolean>(ADD_CLIENT) 

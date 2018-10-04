@@ -10,14 +10,15 @@ import sagas from '../../client/rootSaga'
 import { configureStore, renderApp, html } from './helpers'
 
 export const renderServer = (app: any) => {
+    const router = express.Router()
 
-    app.use(express.static('dist'))
-    app.use((req: Request, res: Response, next: any) => {
+    router.use(express.static('dist'))
+    router.use((req: Request, res: Response, next: any) => {
         res.header('Access-Control-Allow-Origin', '*')
         res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With')
         next()
     })
-    app.all('*', function(req, res, next) {
+    router.all('*', function(req, res, next) {
         res.header('Access-Control-Allow-Origin', '*');
         res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
         res.header('Access-Control-Allow-Headers', 'Content-Type');
@@ -27,10 +28,10 @@ export const renderServer = (app: any) => {
             next();
         }
     });
-    app.use(bodyParser.json());
-    app.use('/api/blockhains', blockchain)
-    app.use('/api/block', block)
-    app.use('*',(req: Request, res: Response) => {
+    router.use(bodyParser.json());
+    router.use('/api/blockhains', blockchain)
+    router.use('/api/block', block)
+    router.get('*',(req: Request, res: Response) => {
         const store:any = configureStore()
         const context = {}
         const rootTask = store.runSaga(sagas)
@@ -47,6 +48,5 @@ export const renderServer = (app: any) => {
         store.close()
     })
 
-
-
+    app.use(router)
 }

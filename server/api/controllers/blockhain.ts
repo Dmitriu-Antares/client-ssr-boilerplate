@@ -5,7 +5,8 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
     const data = blockchainData()
-    res.json({data})
+    const err = null
+    res.json({err, data})
 })
 
 export default router

@@ -5,10 +5,10 @@ import { ReduxState } from '../types'
 
 
 const initialState:ReduxState = {
-    gists: []
+    blockchains: [],
 };
 
 const blockchians = reducerWithInitialState(initialState)
-    .case(fetchBlockchains.done, (state, { result }) => ({...state, blockchains: result}))
+    .case(fetchBlockchains.done, (state, data) => ({...state, blockchains: data}))
 
 export default blockchians

@@ -1,4 +1,4 @@
-import { Gists } from '../containers/Main/types'
+import { Blockchains } from "../containers/Blockchains/types";
 
 declare global {
     const __ENV__: {[prop: string]: any }
@@ -6,7 +6,7 @@ declare global {
 }
 
 export interface GlobalState {
-    main: { gists: [Gists] },
     global: any
+    blockchains: {blockchains: Blockchains[]}
 }
 

@@ -11,16 +11,11 @@ import {
 
 function* fetchBlockchainsList( action: Action<null> ) {
     try {
-        const fetchBlockchainList = yield call(getBlockchains);
-        console.log(fetchBlockchainList)
-        /*
-        yield put(fetchBlockchains.done({
-            params: action.payload,
-            result: gists
-        }));
-        */
+        const {err, data} = yield call(getBlockchains);
+        if(err) throw new Error(err)
+        if(!err) yield put(fetchBlockchains.done(data))
     } catch (error) {
-        // console.log(error)
+        console.log(error)
     }
 }
 
