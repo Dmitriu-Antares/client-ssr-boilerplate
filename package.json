@@ -85,7 +85,7 @@
     "build-dev:client": "webpack --mode=development --config ./webpack/webpack.dev.client.js",
     "build-dev:server": "webpack --mode=development --config ./webpack/webpack.dev.server.js",
     "dev": "better-npm-run dev:start",
-    "dev:start": "nodemon --trace-warnings ./dist/server.js",
+    "dev:start": "nodemon ./dist/server.js",
     "dev:start-client": "webpack --mode=development  --config ./webpack/webpack.dev.client.js --watch",
     "dev:start-server": "webpack --mode=development  --config ./webpack/webpack.dev.server.js --watch"
   },

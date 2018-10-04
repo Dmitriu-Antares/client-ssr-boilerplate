@@ -7,10 +7,11 @@ export default class BlockchainsMobile extends Component<MobileProps, State> {
     render(){
         return(
             <div>
-
-                Blockchaing mobile
-
-                Where we can do anything we want
+                <p>Blockchains mobile</p>
+                <p>Here we can render really different view for mobile version,
+                if we don`t want to make out Blockchains file to large,
+                messy, and with a lot of no needed on mobile funcs/methods/etc.</p>
+                <p>P.S also it works on chunks!</p>
             </div>
         )
     }

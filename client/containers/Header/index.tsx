@@ -7,6 +7,8 @@ import { defineClient, mediaDefintion } from "./redux/actions";
 import { MEDIA } from '../../common/constans'
 import { Props, State } from './types'
 
+import * as styles from './styles/Header.css'
+
 const mapStateToProps = ( state:GlobalState ) => ({
     media: getMedia(state),
     isClient: isClient(state)
@@ -55,8 +57,10 @@ export default class Header extends React.Component<Props,State>{
     render(){
         const { media } = this.props
         return (
-            <div>
-                Header
+            <div className={styles.border}>
+                <div className={styles.container}>
+                    <h3>Blockchains</h3>
+                </div>
             </div>
         )
     }
