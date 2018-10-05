@@ -15,6 +15,10 @@ export interface Blockchains {
 export interface ReduxState {
 }
 
+export interface ParentState {
+    modal: boolean
+}
+
 export interface ParentProps extends DesktopProps{
     isMobile: boolean
     loadBlockchains(): void

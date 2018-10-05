@@ -5,7 +5,7 @@ const router = express.Router()
 
 router.get('/:id', (req, res) => {
     const id = req.params.id
-    const data = blockchainData()
+    const data:any = blockchainData()
     res.json({data: data.blocks[id-1]})
 })
 

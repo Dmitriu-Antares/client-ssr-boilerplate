@@ -1,0 +1,9 @@
+
+.button {
+    width: auto;
+    display: inline-block;
+    padding: .25rem .5rem;
+    border: 1px solid black;
+    background: transparent; 
+    margin: 1rem 0 .5rem;
+} 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import Button from '../../../components/Button/Button'
 
 import * as styles from '../styles/Blockchain.css'
 
@@ -9,10 +9,11 @@ export default class Blockchain extends Component<any,any> {
         const { blockchain } = this.props
 
         return(
-            <div>
-                {
+            <div className={styles.container}>
+                <Button value="Add block"/>
+               {
                     blockchain && 
-                    <div className={styles.container}>
+                    <div>
                         <p>Name {blockchain.name}</p>
                         <p>Id {blockchain.id}</p>
                         <p>Blocks</p>

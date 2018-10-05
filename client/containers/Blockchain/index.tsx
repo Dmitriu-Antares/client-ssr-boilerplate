@@ -6,10 +6,6 @@ import { getIsMobile } from "../../common/selectors";
 import { fetchBlockchains } from "../Blockchains/redux/actions";
 import { takeBlockchains } from "../Blockchains/redux/selectors";
 
-
-import './styles/Blockchain.css' 
-
-
 const BlockchainLoadable = Loadable({
     loader: () => import('./Blockchain/Blockchain'),
     loading: () => <div> </div>
@@ -34,7 +30,7 @@ export default class Blockchain extends Component<any, any> {
         const { blockchains } = this.props
         const blockchainId = this.props.match.params.id
         const blockchain = blockchains[blockchainId]
-        console.log('hi')
+
         return(
             <div>
                 <Helmet>

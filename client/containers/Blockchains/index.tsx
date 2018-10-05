@@ -5,11 +5,7 @@ import Helmet from "react-helmet";
 import { getIsMobile } from "../../common/selectors";
 import { fetchBlockchains } from "./redux/actions";
 import { takeBlockchains } from "./redux/selectors";
-import { ParentProps } from './types'
-
-
-
-import './styles/Blockchains.css' 
+import { ParentProps, ParentState } from './types'
 
 const BlockchainsMobile = Loadable({
     loader: () => import('./BlockchainsMobile/BlockchainsMobile'),
@@ -32,13 +28,15 @@ const mapDispatchToProps = ( dispatch: any ) => ({
 
 @(connect(mapStateToProps, mapDispatchToProps) as any)
 
-export default class Blockchains extends Component<ParentProps, {any}> {
+export default class Blockchains extends Component<ParentProps, {}> {
+
     componentWillMount() {
         this.props.loadBlockchains()
     }
 
     render() {
         const { isMobile, blockchains } = this.props
+
         return(
             <div>
                 <Helmet>

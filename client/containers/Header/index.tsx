@@ -21,7 +21,7 @@ const mapDispatchToProps = ( dispatch: any ) => ({
 
 @(connect(mapStateToProps, mapDispatchToProps) as any)
 
-export default class Header extends React.Component<Props,State>{
+export default class Header extends React.Component<any ,any>{
     componentWillMount() {
         if(typeof(window) !== "undefined") {
             this.addMedia()
