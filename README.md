@@ -12,7 +12,7 @@ What you will see:
 - Saga helper for TS, that makes work with redux easier and faster
 - some custom webpack modules
 - React router 4
-P.S production bundle is in progress (refactoring webpack) so maybe he can work no that correctly as expected (also with routes)
+
 
 
 address: http://localhost:3030/
