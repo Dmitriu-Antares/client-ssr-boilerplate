@@ -23,7 +23,7 @@ module.exports = {
             __ENV__: JSON.stringify(config)
         }),
         new LiveReloadPlugin(),
-        new DeleteFiles({options: true})
+        //new DeleteFiles({options: true})
     ],
     module: {
         rules: [
