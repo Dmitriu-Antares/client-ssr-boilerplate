@@ -72,13 +72,7 @@ module.exports = {
                             name: '[name].[ext]',
                             outputPath: 'assets/'
                         }
-                    },
-                    {
-                        loader: 'image-webpack-loader',
-                        options: {
-                            disable: true
-                        },
-                    },
+                    }
                 ],
             }
         ]
