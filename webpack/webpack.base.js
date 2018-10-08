@@ -25,7 +25,14 @@ module.exports = {
         new LiveReloadPlugin(),
         //new DeleteFiles({options: true})
     ],
-    module: {
+    resolve: {
+        extensions: ['.ts', '.tsx', '.js', '.json', '.scss', '.css'],
+        alias: {
+          components: path.resolve('./client/components'),
+          common: path.resolve('./client/common'),
+        },
+      },
+    module: {   
         rules: [
             {
                 test: /\.(ts|tsx)$/,

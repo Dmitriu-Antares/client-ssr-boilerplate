@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import {GlobalState} from "../../common/store";
-import { getMedia, isClient } from "../../common/selectors";
-import { defineClient, mediaDefintion } from "./redux/actions";
-import { MEDIA } from '../../common/constans'
-import { Props, State } from './types'
+import {GlobalState} from "common/store";
+import { getMedia, isClient } from "common/selectors";
+import { MEDIA } from 'common/constans'
 
+import { defineClient, mediaDefintion } from "./redux/actions";
+import { Props, State } from './types'
 import * as styles from './styles/Header.css'
 
 const mapStateToProps = ( state:GlobalState ) => ({

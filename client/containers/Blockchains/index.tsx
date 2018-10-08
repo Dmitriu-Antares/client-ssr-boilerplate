@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Loadable from 'react-loadable'
 import {connect} from "react-redux";
 import Helmet from "react-helmet";
-import { getIsMobile } from "../../common/selectors";
+import { getIsMobile } from "common/selectors";
 import { fetchBlockchains } from "./redux/actions";
 import { takeBlockchains } from "./redux/selectors";
 import { ParentProps, ParentState } from './types'

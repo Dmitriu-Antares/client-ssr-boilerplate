@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Button from '../Button/Button'
+import Button from 'components/Button/Button'
 import * as styles from './styles/BlockchainModal.css'
 
 export default class BlockchainModal extends Component<any,any>{
