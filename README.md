@@ -1,5 +1,9 @@
 # Blockchain client side
 
+#stuff todo
+- tslint 
+- dist chunks in a some folder
+
 #Readme:
 This app is not about interface beauty, but about architecture. Researching of new solutions is in progress, so template is not done yet.
 

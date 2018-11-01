@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import {GlobalState} from "common/store";
+import { GlobalState } from "common/store";
 import { getMedia, isClient } from "common/selectors";
 import { MEDIA } from 'common/constans'
 
