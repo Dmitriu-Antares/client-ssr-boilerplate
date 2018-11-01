@@ -1,43 +1,48 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { GlobalState } from "common/store";
-import { getMedia, isClient } from "common/selectors";
+import { GlobalState } from 'common/store'
+import { getMedia, isClient } from 'common/selectors'
 import { MEDIA } from 'common/constans'
 
-import { defineClient, mediaDefintion } from "./redux/actions";
+import { defineClient, mediaDefintion } from './redux/actions'
 import { Props, State } from './types'
 import * as styles from './styles/Header.css'
 
-const mapStateToProps = ( state:GlobalState ) => ({
+const mapStateToProps = (state: GlobalState) => ({
     media: getMedia(state),
-    isClient: isClient(state)
+    isClient: isClient(state),
 })
 
-const mapDispatchToProps = ( dispatch: any ) => ({
-    defineCli: bool => { dispatch(defineClient(bool)) },
-    setMedia: media => { dispatch(mediaDefintion(media)) }
+const mapDispatchToProps = (dispatch: any) => ({
+    defineCli: (bool) => {
+        dispatch(defineClient(bool))
+    },
+    setMedia: (media) => {
+        dispatch(mediaDefintion(media))
+    },
 })
 
-@(connect(mapStateToProps, mapDispatchToProps) as any)
-
-export default class Header extends React.Component<any ,any>{
+@(connect(
+    mapStateToProps,
+    mapDispatchToProps,
+) as any)
+export default class Header extends React.Component<any, any> {
     componentWillMount() {
-        if(typeof(window) !== "undefined") {
+        if (typeof window !== 'undefined') {
             this.addMedia()
             window.addEventListener('resize', this.addMedia)
-        }
-        else {
+        } else {
             this.props.setMedia({
                 isMobile: false,
                 isDesktop: true,
-                isTablet: false
+                isTablet: false,
             })
         }
-        this.props.defineCli(typeof(window) !== "undefined")
+        this.props.defineCli(typeof window !== 'undefined')
     }
 
-    componentWillUnmount () {
+    componentWillUnmount() {
         window.removeEventListener('resize', this.addMedia)
     }
 
@@ -46,15 +51,15 @@ export default class Header extends React.Component<any ,any>{
         this.props.setMedia(newMedia)
     }
 
-    checkMedia = width => {
+    checkMedia = (width) => {
         return {
             isMobile: width <= MEDIA.mobile,
             isTablet: width > MEDIA.mobile && width <= MEDIA.tablet,
-            isDesktop: width > MEDIA.tablet
+            isDesktop: width > MEDIA.tablet,
         }
     }
 
-    render(){
+    render() {
         const { media } = this.props
         return (
             <div className={styles.border}>
@@ -64,4 +69,4 @@ export default class Header extends React.Component<any ,any>{
             </div>
         )
     }
-};
+}

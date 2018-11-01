@@ -20,6 +20,7 @@
   },
   "exclude": [
     "node_modules",
-    "*.css"
+    "*.css",
+    "server/server.tsx"
   ]
 }

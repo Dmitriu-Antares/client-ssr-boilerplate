@@ -1,8 +1,8 @@
 import * as React from 'react'
-import * as ReactDOM from "react-dom"
+import * as ReactDOM from 'react-dom'
 import * as express from 'express'
-import { Request, Response } from 'express';
-import bodyParser from 'body-parser';
+import { Request, Response } from 'express'
+import bodyParser from 'body-parser'
 
 import blockchain from '../api/controllers/blockhain'
 import block from '../api/controllers/block'
@@ -19,29 +19,29 @@ export const renderServer = (app: any) => {
         next()
     })
     router.all('*', function(req, res, next) {
-        res.header('Access-Control-Allow-Origin', '*');
-        res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-        res.header('Access-Control-Allow-Headers', 'Content-Type');
+        res.header('Access-Control-Allow-Origin', '*')
+        res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE')
+        res.header('Access-Control-Allow-Headers', 'Content-Type')
         if ('OPTIONS' == req.method) {
-            res.sendStatus(200);
+            res.sendStatus(200)
         } else {
-            next();
+            next()
         }
-    });
-    router.use(bodyParser.json());
+    })
+    router.use(bodyParser.json())
     router.use('/api/blockhains', blockchain)
     router.use('/api/block', block)
-    router.get('*',(req: Request, res: Response) => {
-        const store:any = configureStore()
+    router.get('*', (req: Request, res: Response) => {
+        const store: any = configureStore()
         const context = {}
         const rootTask = store.runSaga(sagas)
-        const preRenderBody:any = renderApp(store, {}, req)
+        const preRenderBody: any = renderApp(store, {}, req)
         preRenderBody.then(() => {
             rootTask.done.then(() => {
-                const postRenderedBody:any = renderApp(store, {}, req)
+                const postRenderedBody: any = renderApp(store, {}, req)
 
-                postRenderedBody.then(response => {
-                    res.send(html({body:response.body}, response.bundles , store.getState()))
+                postRenderedBody.then((response) => {
+                    res.send(html({ body: response.body }, response.bundles, store.getState()))
                 })
             })
         })
