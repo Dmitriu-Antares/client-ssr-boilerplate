@@ -1,8 +1,10 @@
 # Blockchain client side
 
-#stuff todo
-- tslint 
-- dist chunks in a some folder
+#IMPORTANT
+- same functionality as on video need to be implemented be handwritten solution via pure js, but it`s to complicated for a test task, so I decided to use the most similar lib.
+- created only based func, no validations, moving elements from second column to second column, etc. 
+- no styles.  
+- if you want to see a code style - look over another components, redux logic, ssr, webpack.
 
 #Readme:
 This app is not about interface beauty, but about architecture. Researching of new solutions is in progress, so template is not done yet.
@@ -26,6 +28,7 @@ address: http://localhost:3030/
 Frontend:
 ```sh
 yarn
+npm i nodemon -g (if you do not have it)
 yarn build-dev (only for a first time)
 yarn dev
 ```
@@ -35,6 +38,7 @@ yarn dev
 Frontend:
 ```sh
 yarn 
+npm i nodemon -g (if you do not have it)
 yarn build-prod
 yarn start
 ```

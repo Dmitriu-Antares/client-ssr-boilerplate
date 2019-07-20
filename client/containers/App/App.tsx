@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Blockchains, Blockchain } from '../../containers'
+import { Blockchains, Blockchain, Main } from '../../containers'
 import { Route, Switch } from 'react-router-dom'
 import Header from '../Header'
 
@@ -15,7 +15,8 @@ const App = () => (
     <div>
         <Header />
         <Switch>
-            <Route path="/" exact component={Blockchains} />
+            <Route path="/" exact component={Main} />
+            <Route path="/blockchains" component={Blockchains} />
             <Route path="/:id" component={Blockchain} />
         </Switch>
     </div>
